@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Marsya ❤️</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Audio Element -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="assets/music/bg-music.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- ============ LANDING COVER ============ -->
+    <div id="landingOverlay" class="landing-overlay">
+        <div class="landing-inner">
+            <h1 class="landing-title">A <em>Special</em> Gift<br>for <span class="grad-text">You</span></h1>
+            <p class="landing-sub">Sebuah hadiah kecil yang dibuat dengan penuh cinta, di hari teristimewamu.</p>
+            <button id="startBtn" class="heart-btn">
+                <span class="heart-btn-icon">💌</span>
+                Buka Surat
+            </button>
+        </div>
+        <div id="heartsLayer" class="hearts-layer"></div>
+    </div>
+
+    <!-- ============ MINI GAME (pintu masuk home) ============ -->
+    <div id="gameOverlay" class="game-overlay hidden">
+        <div class="game-panel" id="gamePanel">
+            <p class="game-eyebrow">✦ Mini Game ✦</p>
+            <h2 class="game-title">Tangkap Hati untuk Masuk! 💘</h2>
+            <p class="game-sub">Kumpulkan <b id="gameGoal">12</b> hati sebelum waktu habis.<br>Klik / tap hati yang berjatuhan untuk menangkapnya.</p>
+
+            <div class="game-hud">
+                <span class="game-score">💗 <b id="score">0</b></span>
+                <div class="game-timer-bar"><span id="timerBar"></span></div>
+                <span class="game-timer" id="timer">40s</span>
+            </div>
+
+            <div id="playArea" class="play-area">
+                <span class="play-hint" id="playHint">Klik <b>Mulai Game</b> untuk bermain!</span>
+            </div>
+
+            <button id="gameStart" class="wish-btn">🎮 Mulai Game</button>
+        </div>
+
+        <div id="winPanel" class="win-panel hidden">
+            <div class="win-badge">🏆</div>
+            <h2 class="win-title">Selamat Datang di Rumah, Marsya! 💘</h2>
+            <p class="win-sub">Kamu berhasil mengumpulkan semua hati.<br>Halaman cinta ini sudah menunggumu…</p>
+            <button id="enterSiteBtn" class="wish-btn">Masuk ke Halaman Cinta 💖</button>
+        </div>
+    </div>
+
+    <!-- ============ MAIN CONTENT (home) ============ -->
+    <main id="mainContent" class="hidden">
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-bg" style="background-image: url('assets/images/bg-hero.jpg');"></div>
+            <div class="hero-content">
+                <span class="badge reveal">✦ Special Day ✦</span>
+                <h1 class="hero-title reveal reveal-delay-1">
+                    Happy Birthday,<br>
+                    <span class="highlight">Marsya Aulia Putri</span> ❤️
+                </h1>
+                <p class="hero-subtitle reveal reveal-delay-2">
+                    Hari ini adalah tentangmu kebahagiaanmu, tawamu, dan seluruh senyum indahmu.
+                </p>
+
+                <!-- Kalkulator waktu bersama (live) -->
+                <div class="time-counter reveal reveal-delay-3">
+                    <p class="counter-label">Kita telah mengukir kenangan indah selama:</p>
+                    <div class="counter-grid">
+                        <div class="stat">
+                            <span id="statYears" class="stat-num">0</span>
+                            <small class="stat-label">Tahun</small>
+                        </div>
+                        <div class="stat">
+                            <span id="statMonths" class="stat-num">0</span>
+                            <small class="stat-label">Bulan</small>
+                        </div>
+                        <div class="stat">
+                            <span id="statDays" class="stat-num">0</span>
+                            <small class="stat-label">Hari</small>
+                        </div>
+                        <div class="stat stat-total">
+                            <span id="totalDays" class="stat-num">0</span>
+                            <small class="stat-label">Total Hari Bersamamu</small>
+                        </div>
+                    </div>
+                    <p class="counter-live" id="counterLive">—</p>
+                </div>
+            </div>
+            <div class="scroll-hint reveal reveal-delay-4">▼ scroll Ke bawah ya Bub ▼</div>
+        </section>
+
+        <!-- Galeri Kenangan -->
+        <section class="section-wrap gallery-section" id="gallery">
+            <h2 class="section-title reveal">Galeri Kenangan <span class="grad-text">✦</span></h2>
+            <p class="section-desc reveal reveal-delay-1">Setiap foto adalah detik yang tak ingin kulewatkan bersamamu.</p>
+            <div class="gallery-grid">
+                <figure class="photo-card reveal">
+                    <div class="photo-wrap">
+                        <img src="assets/images/photo1.jpg" alt="Momen 1">
+                        
+                    </div>
+                    <figcaption class="photo-caption">Si Cantik Kesayanganku</figcaption>
+                </figure>
+                <figure class="photo-card reveal">
+                    <div class="photo-wrap">
+                        <img src="assets/images/photo2.jpg" alt="Momen 2">
+                    </div>
+                    <figcaption class="photo-caption">Senyum yang Bikin Jatuh Cinta</figcaption>
+                </figure>
+                <figure class="photo-card reveal">
+                    <div class="photo-wrap">
+                        <img src="assets/images/photo3.jpg" alt="Momen 3">
+                    </div>
+                    <figcaption class="photo-caption">Si Paling Ngambekan</figcaption>
+                </figure>
+                <figure class="photo-card reveal">
+                    <div class="photo-wrap">
+                        <img src="assets/images/photo4.jpg" alt="Momen 4">
+                    </div>
+                    <figcaption class="photo-caption">Unlimited Cantiknya</figcaption>
+                </figure>
+                <figure class="photo-card reveal">
+                    <div class="photo-wrap">
+                        <img src="assets/images/photo5.jpg" alt="Momen 5">
+                    </div>
+                    <figcaption class="photo-caption">Mood Booster-ku</figcaption>
+                </figure>
+                <figure class="photo-card reveal">
+                    <div class="photo-wrap">
+                        <img src="assets/images/photo6.jpg" alt="Momen 6">
+                    </div>
+                    <figcaption class="photo-caption">Kamu, Sekarang Dan Nanti</figcaption>
+                </figure>
+            </div>
+            <p class="section-tip reveal"><em></em></p>
+        </section>
+
+        <!-- Cake: lilin nyala -> tiup -> hadiah bunga -->
+        <section class="section-wrap cake-section" id="cake">
+            <h2 class="section-title reveal">Kue untukmu 💫</h2>
+            <p class="section-desc reveal reveal-delay-1">Tiup lilinyaa ,Ehh gak Bisa di tekan tombolnya Bub</p>
+
+            <div class="cake reveal reveal-delay-2">
+                <div class="candles" id="candles">
+                    <button type="button" class="candle lit" aria-label="Lilin 1"><span class="flame"></span><span class="wick"></span></button>
+                    <button type="button" class="candle lit" aria-label="Lilin 2"><span class="flame"></span><span class="wick"></span></button>
+                    <button type="button" class="candle lit" aria-label="Lilin 3"><span class="flame"></span><span class="wick"></span></button>
+                </div>
+                <div class="cake-frosting"></div>
+                <div class="cake-sprinkles"></div>
+                <div class="cake-layer cake-top"></div>
+                <div class="cake-layer cake-bottom"></div>
+                <div class="cake-plate"></div>
+                <div class="cake-topper">♥</div>
+            </div>
+
+            <p class="cake-hint" id="cakeHint"></p>
+
+            <div class="breath-wrap">
+                <div class="breath-meter"><span id="breathBar"></span></div>
+                <button id="blowBtn" class="wish-btn">🌬️ Tahan Tombolnya yaa</button>
+            </div>
+
+            <!-- Hadiah bunga -->
+            <div id="gift" class="gift hidden">
+                <div class="gift-inner" id="giftBox">
+                    <span class="gift-lid">🎀</span>
+                    <span class="gift-body">🎁</span>
+                </div>
+                <p class="gift-hint" id="giftHint">Ada sebuah hadiah untukmu… klik kotaknya! 🎁</p>
+            </div>
+
+            <div id="flowers" class="flowers hidden">
+                <div class="rose-scene">
+                    <div class="scene-light"></div>
+                    <div class="light-pool"></div>
+
+                    <div class="rose" id="rose">
+                        <div class="rose-glow"></div>
+
+                        <span class="dust d1"></span>
+                        <span class="dust d2"></span>
+                        <span class="dust d3"></span>
+                        <span class="dust d4"></span>
+                        <span class="dust d5"></span>
+                        <span class="dust d6"></span>
+                        <span class="dust d7"></span>
+                        <span class="dust d8"></span>
+
+                        <div class="rose-base"></div>
+
+                        <div class="rose-plant plant-l">
+                            <div class="rose-stem"></div>
+                            <div class="rose-leaf leaf-r1"></div>
+                            <div class="rose-leaf leaf-l1"></div>
+                            <div class="rose-leaf leaf-r2"></div>
+                            <div class="rose-leaf leaf-l2"></div>
+                            <div class="rose-sepal"><span></span><span></span><span></span></div>
+                            <div class="rose-bud"></div>
+                            <div class="rose-flower">
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="rose-center"></div>
+                            </div>
+                        </div>
+
+                        <div class="rose-plant plant-c">
+                            <div class="rose-stem"></div>
+                            <div class="rose-leaf leaf-r1"></div>
+                            <div class="rose-leaf leaf-l1"></div>
+                            <div class="rose-leaf leaf-r2"></div>
+                            <div class="rose-leaf leaf-l2"></div>
+                            <div class="rose-sepal"><span></span><span></span><span></span></div>
+                            <div class="rose-bud"></div>
+                            <div class="rose-flower">
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="rose-center"></div>
+                            </div>
+                        </div>
+
+                        <div class="rose-plant plant-r">
+                            <div class="rose-stem"></div>
+                            <div class="rose-leaf leaf-r1"></div>
+                            <div class="rose-leaf leaf-l1"></div>
+                            <div class="rose-leaf leaf-r2"></div>
+                            <div class="rose-leaf leaf-l2"></div>
+                            <div class="rose-sepal"><span></span><span></span><span></span></div>
+                            <div class="rose-bud"></div>
+                            <div class="rose-flower">
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="petal"></div>
+                                <div class="rose-center"></div>
+                            </div>
+                        </div>
+
+                        <span class="rose-particle rp1"></span>
+                        <span class="rose-particle rp2"></span>
+                        <span class="rose-particle rp3"></span>
+                        <span class="rose-particle rp4"></span>
+                        <span class="rose-particle rp5"></span>
+                        <span class="rose-particle rp6"></span>
+
+                        <span class="fall-petal fp1"></span>
+                        <span class="fall-petal fp2"></span>
+                        <span class="fall-petal fp3"></span>
+                    </div>
+
+                    <div class="birthday-letter">
+                        <h3 class="bl-hello">Happy birthday, <span>Bubbb</span> 🎂❤️</h3>
+
+                        <p>Selamat ulang tahun buat cewek yang paling cantik, paling bawel, paling gampang ngambek, paling manja kalau ketemu, dan entah kenapa juga paling lucu kalau lagi nggak sadar dirinya lucu.</p>
+
+                        <p>Nggak kerasa ya Bub, sekarang umur kamu nambah lagi. Tenang aja, jangan takut tua... aku tetap sayang kok, walaupun nanti kamu makin bawel dan volume ngomelnya mungkin naik beberapa persen.</p>
+
+                        <p>Di umur kamu yang baru ini, aku doain semoga kamu selalu sehat, bahagia, panjang umur, dimudahkan semua urusannya, dilancarkan rezekinya, dan semua hal yang kamu inginkan bisa satu per satu terwujud.</p>
+
+                        <p>Aku juga mau bilang makasih karena kamu udah hadir di hidup aku. Makasih udah mau nemenin aku, udah sabar sama aku, udah mau dengerin cerita-cerita aku, dan tentunya makasih juga karena sampai sekarang masih mau menghadapi sifat aku yang kadang nggak kalah ngeselinnya dari kamu.</p>
+
+                        <p>Walaupun kamu bawel, suka ngambek, suka manja, kadang bikin aku pusing, tapi jujur... aku suka semua itu. Karena itu kamu. Aku suka saat kamu manja waktu ketemu, suka saat kamu tiba-tiba jadi lucu, bahkan saat kamu ngambek pun sebenarnya aku gemes... walaupun kalau ngambeknya kelamaan aku juga mulai panik sih </p>
+
+                        <p>Aku nggak tahu ke depannya kita bakal sejauh apa, tapi selama aku masih bisa, aku pengen terus nemenin kamu, bikin kamu ketawa, dengerin semua cerita kamu, dan jadi tempat kamu pulang ketika kamu lagi capek sama semuanya.</p>
+
+                        <p>Semoga di umur kamu yang baru ini, kamu bukan cuma bertambah umur, tapi juga bertambah bahagia. Dan semoga salah satu alasan kamu bahagia masih tetap aku.</p>
+
+                        <p>Sekali lagi, happy birthday, Bubbb 🎂❤️</p>
+
+                        <p>Tetap jadi Bub yang bawel, manja, ngambekan, dan lucu itu yaa. Jangan berubah jadi orang lain, karena aku jatuh cinta sama kamu yang sekarang. 🥺❤️</p>
+
+                        <p class="bl-sign">I love you, Bub.<br>
+                        Lebih banyak dari yang bisa aku jelasin, dan mungkin lebih banyak dari kesabaran aku menghadapi kamu kalau lagi ngambek eh tapi lebih sabaran kamu dehh kalau lagi ngadapin aku hehehehe. 😭😂❤️</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-section">
+            <p class="footer-main">Forever &amp; Always,<br><strong>Uzi untuk Caca</strong></p>
+        </footer>
+
+    </main>
+
+    <!-- ============ LIGHTBOX FOTO ============ -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button id="lbClose" class="lb-nav lb-close" aria-label="Tutup">✕</button>
+        <button id="lbPrev" class="lb-nav lb-prev" aria-label="Sebelumnya">‹</button>
+        <figure class="lb-figure">
+            <img id="lbImg" src="" alt="Foto kenangan">
+            <figcaption id="lbCaption"></figcaption>
+        </figure>
+        <button id="lbNext" class="lb-nav lb-next" aria-label="Berikutnya">›</button>
+        <span class="lb-count" id="lbCount"></span>
+    </div>
+
+    <!-- ============ LAPISAN EFEK ============ -->
+    <span id="cursorHearts" class="cursor-hearts" aria-hidden="true"></span>
+    <div id="balloonLayer" class="balloon-layer" aria-hidden="true"></div>
+
+    <!-- ============ FLOATING MUSIC PLAYER ============ -->
+    <div id="musicPlayer" class="music-player hidden">
+        <button id="musicToggle" class="music-toggle" aria-label="Play/Pause musik">
+            <svg viewBox="0 0 24 24" class="ico-play" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" class="ico-pause" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="music-info" id="musicInfo">
+            <span class="music-title">🎵 Pamungkas - Happy Birthday To You</span>
+            <div class="music-eq"><i></i><i></i><i></i></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
