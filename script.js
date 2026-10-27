@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startDate.setHours(0, 0, 0, 0);
 
     // ============ EMOJI HATI ============
-    const HEART_EMOJIS = ['❤', '💛', '💗', '💕', '💞', '💖'];
+    const HEART_EMOJIS = ['❤', '💛', '💗', '💕', '🤍', '💖'];
 
     // ============ REVEAL ON SCROLL ============
     const revealObserver = new IntersectionObserver((entries) => {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 revealObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.10 });
 
     document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
@@ -223,8 +223,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================================
     //         MINI GAME: TANGKAP HATI
     // =========================================================
-    const GOAL  = 12;
-    const TIME  = 40;
+    const GOAL  = 10;
+    const TIME  = 45;
 
     const playArea    = document.getElementById('playArea');
     const playHint    = document.getElementById('playHint');
@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         h.textContent = HEART_EMOJIS[Math.floor(Math.random() * HEART_EMOJIS.length)];
         h.style.left = (4 + Math.random() * 88) + '%';
         h.style.fontSize = (24 + Math.random() * 22) + 'px';
-        const dur = 1.9 + Math.random() * 1.8;
+        const dur = 1.9 + Math.random() * 2.0;
         h.style.animationDuration = dur + 's';
         h.style.setProperty('--sway', (Math.random() * 90 - 45) + 'px');
         h.addEventListener('click', (e) => {
